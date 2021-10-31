@@ -112,7 +112,8 @@ namespace OpenCmd
 			var fullName =
 				item.ProjectItem?.Properties.OfType<Property>().FirstOrDefault(a => a.Name == "FullPath")?.Value?.ToString()
 				?? item.ProjectItem?.Document?.FullName
-				?? item.Project.FullName;
+				?? item.Project?.FullName
+				?? dte.Solution?.FileName;
 
 			if (string.IsNullOrWhiteSpace(fullName)) return;
 

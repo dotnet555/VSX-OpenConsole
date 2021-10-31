@@ -36,6 +36,10 @@
          group as the part of a menu contained between two lines. The parent of a group
          must be a menu. -->
 		<Groups>
+			<!--Applies when the solution node is selected.-->
+			<Group guid="guidOpenCmdPackageCmdSet" id="SolutionMenuGroup" priority="0xF000">
+				<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_SOLNNODE"/>
+			</Group>
 			<!--Applies when the project node is selected.-->
 			<Group guid="guidOpenCmdPackageCmdSet" id="ProjectMenuGroup" priority="0xF000">
 				<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_PROJNODE"/>
@@ -75,6 +79,9 @@
 
 	<CommandPlacements>
 		<CommandPlacement guid="guidOpenCmdPackageCmdSet" id="OpenConsoleCommandId" priority="0x105">
+			<Parent guid="guidOpenCmdPackageCmdSet" id="SolutionMenuGroup" />
+		</CommandPlacement>
+		<CommandPlacement guid="guidOpenCmdPackageCmdSet" id="OpenConsoleCommandId" priority="0x105">
 			<Parent guid="guidOpenCmdPackageCmdSet" id="ProjectMenuGroup" />
 		</CommandPlacement>
 		<CommandPlacement guid="guidOpenCmdPackageCmdSet" id="OpenConsoleCommandId" priority="0x105">
@@ -94,6 +101,7 @@
 			<IDSymbol name="ProjectMenuGroup" value="0x1020" />
 			<IDSymbol name="FileMenuGroup" value="0x1021" />
 			<IDSymbol name="FolderMenuGroup" value="0x1022" />
+			<IDSymbol name="SolutionMenuGroup" value="0x1023" />
 			<IDSymbol name="OpenConsoleCommandId" value="0x0100" />
 		</GuidSymbol>
 
